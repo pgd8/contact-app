@@ -11,7 +11,7 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('contact app'),
+        title: const Text('contact app',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
