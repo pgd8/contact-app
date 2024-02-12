@@ -1,5 +1,5 @@
 class Contact {
   String name;
   String number;
-  Contact(this.name,this.number);
+  Contact({ required this.name,required this.number});
 }

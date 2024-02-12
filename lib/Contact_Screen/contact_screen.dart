@@ -1,9 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:contactapp/Contact_Screen/add_button.dart';
-import 'package:contactapp/Contact_Screen/delete_button.dart';
-import 'package:contactapp/Contact_Screen/name_field.dart';
-import 'package:contactapp/Contact_Screen/number_field.dart';
+import 'package:contactapp/Contact_Screen/button_label.dart';
+import 'package:contactapp/Contact_Screen/field_label.dart';
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -25,12 +23,59 @@ class _ContactScreenState extends State<ContactScreen> {
       ),
       body: Column(
         children: [
-          NameField(),
-          NumberField(),
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: TextField(
+              style: const TextStyle(color: Colors.black, fontSize: 12),
+              decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.drive_file_rename_outline,
+                    color: Colors.blue,
+                  ),
+                  isDense: true,
+                  label: FieldLabel('Name'),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  )),
+            ),
+          ), //Name Field
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: TextField(
+              keyboardType: TextInputType.phone,
+              style: const TextStyle(color: Colors.black, fontSize: 12),
+              decoration: InputDecoration(
+                  label: FieldLabel('Number'),
+                  prefixIcon: const Icon(
+                    Icons.numbers,
+                    color: Colors.blue,
+                  ),
+                  isDense: true,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  )),
+            ),
+          ), // Number Field
           Row(
             children: [
-              AddBtn(),
-              DeleteBtn(),
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 5, right: 2.5),
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                      child: ButtonLabel('Add')),
+                ),
+              ), // Add Button
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 2.5, right: 5),
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                      child: ButtonLabel('Delete')),
+                ),
+              ), // Delete Button
             ],
           )
         ],
