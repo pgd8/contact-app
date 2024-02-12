@@ -6,10 +6,15 @@ import 'package:flutter/material.dart';
 
 class ContactScreen extends StatefulWidget {
   @override
-  State<ContactScreen> createState() => _ContactScreenState();
+  State<ContactScreen> createState() => ContactScreenState();
 }
 
-class _ContactScreenState extends State<ContactScreen> {
+class ContactScreenState extends State<ContactScreen> {
+  List<String> names = [];
+  TextEditingController nameController = TextEditingController();
+  List<String> numbers = [];
+  TextEditingController numController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +31,7 @@ class _ContactScreenState extends State<ContactScreen> {
           Container(
             margin: const EdgeInsets.all(20),
             child: TextField(
+              controller: nameController,
               style: const TextStyle(color: Colors.black, fontSize: 12),
               decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -42,6 +48,7 @@ class _ContactScreenState extends State<ContactScreen> {
           Container(
             margin: const EdgeInsets.all(20),
             child: TextField(
+              controller: numController,
               keyboardType: TextInputType.phone,
               style: const TextStyle(color: Colors.black, fontSize: 12),
               decoration: InputDecoration(
@@ -62,8 +69,12 @@ class _ContactScreenState extends State<ContactScreen> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 5, right: 2.5),
                   child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                      onPressed: () {
+                        nameController.clear();
+                        numController.clear();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green),
                       child: ButtonLabel('Add')),
                 ),
               ), // Add Button
@@ -72,7 +83,8 @@ class _ContactScreenState extends State<ContactScreen> {
                   margin: const EdgeInsets.only(left: 2.5, right: 5),
                   child: ElevatedButton(
                       onPressed: () {},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                      style:
+                          ElevatedButton.styleFrom(backgroundColor: Colors.red),
                       child: ButtonLabel('Delete')),
                 ),
               ), // Delete Button
