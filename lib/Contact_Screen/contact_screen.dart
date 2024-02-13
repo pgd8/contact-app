@@ -72,6 +72,7 @@ class ContactScreenState extends State<ContactScreen> {
                     margin: const EdgeInsets.only(left: 5, right: 2.5),
                     child: ElevatedButton(
                         onPressed: () {
+                          // to add name and number to the lists
                           names.add(nameController.text);
                           numbers.add(numController.text);
                           nameController.clear();
@@ -88,7 +89,8 @@ class ContactScreenState extends State<ContactScreen> {
                     margin: const EdgeInsets.only(left: 2.5, right: 5),
                     child: ElevatedButton(
                         onPressed: () {
-                          counter = numbers.length-1;
+                          // to delete name and number to the lists
+                          counter = numbers.length - 1;
                           names.removeAt(counter);
                           numbers.removeAt(counter);
                           setState(() {});
@@ -101,6 +103,7 @@ class ContactScreenState extends State<ContactScreen> {
               ],
             ),
             Column(
+              // to show the
               children: List.generate(
                   names.length,
                   (index) => Container(
@@ -126,7 +129,7 @@ class ContactScreenState extends State<ContactScreen> {
                             ),
                             Container(
                               margin:
-                              const EdgeInsets.only(left: 15, right: 15),
+                                  const EdgeInsets.only(left: 15, right: 15),
                               child: Text(
                                 ' Number :  ${numbers[index]}',
                                 style: const TextStyle(
